@@ -32,6 +32,7 @@ COPY ./opt/source-code
 
 ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
 ```
+This Dockerfile is just for example purpose , it is not meant to be used for development.
 
 * To build the docker image from the dockerfile , the following command is used from the terminal : 
 
