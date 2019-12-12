@@ -1,0 +1,32 @@
+version: 2
+services:
+   redis:
+	image: redis
+        networks:
+            -  back-end
+   db: 
+	image: postgres:9.4
+        networks:
+             - back-end
+   vote: 
+	build: ./vote
+	ports:
+	     - 5000:80
+	depends_on:
+             - redis
+        networks:
+             - front-end
+             - back-end
+   result: 
+	build: ./result
+	ports:
+   	     - 5001:80
+        netowkrs:
+             - front-end
+             - back-end
+   worker: 
+	build: ./worker
+
+networks:
+        front-end:
+        back-end:
